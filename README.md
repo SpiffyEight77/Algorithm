@@ -1,1 +1,1 @@
-## Somthing about my Algorithm Study!
+## My Algorithm Study!
