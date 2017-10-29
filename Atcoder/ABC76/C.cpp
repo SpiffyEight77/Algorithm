@@ -4,43 +4,42 @@
 #include<cmath>
 #include<algorithm>
 using namespace std;
-const int maxn = 100000;
-char s[maxn],t[maxn];
-int l1,l2,l3,k,i,j,p;
+string S,T,tmp,res;
 bool f;
 int main()
 {
-    scanf("%s",s);
-    getchar();
-    scanf("%s",t);
-    getchar();
-    l1 = strlen(s);
-    l2 = strlen(t);
-    l3 = l2;
-    k = 0;
-    f = true;
-    for (i = 0; i < l1; i++)
+    cin>>S>>T;
+    res = "";
+    if(T.size() > S.size())
     {
-        if(s[i] == t[k])
+        cout<<"UNRESTORABLE"<<endl;
+        return 0;
+    }
+
+    for (int i = 0; i <= S.size() - T.size(); i++)
+    {
+        f = true;
+        tmp = S;
+        for (int j = 0; j < T.size(); j++)
         {
-            p = i;
-            for (j = i+1; j < l1; j++)
-                if(s[j] == t[k+1] || s[j] == '?')
-                    k++;
-                else
-                    break;
+            if(tmp[i + j] != '?' && tmp[i + j] != T[j])
+            {
+                f = false;
+                break;
+            }
+            tmp[i + j] = T[j];
         }
-        else
-            if(s[i] == '?')
-                s[i] = 'a';
+        if(f == true)
+            res = tmp;
     }
-    if(k+1 != l2)
-        printf("UNRESTORABLE\n");
-    else
+    if(res != "")
     {
-        for (int i = 0; i < p; i++)
-            printf("%c",s[i]);
-        printf("%s\n",t);
+        for (int i = 0; i < S.size(); i++)
+            if(res[i] == '?')
+                res[i] = 'a';
+        cout<<res<<endl;
     }
+    else
+        cout<<"UNRESTORABLE"<<endl;
     return 0;
 }
