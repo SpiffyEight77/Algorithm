@@ -1,22 +1,23 @@
 #include<cstdio>
 #include<iostream>
-#include<cstring>
+using namespace std;
+
 int main()
 {
-    int T,num[110];
-    double n,c;
-    scanf("%d",&T);
-    while(T--)
+    char c;
+    int f = 1;
+    while((c = getchar())!=EOF)
     {
-        c = 0;
-        scanf("%lf",&n);
-        for(int i = 0; i <n; i++)
+        if(c == '"')
         {
-            scanf("%d",&num[i]);
-            if(num[i] == 1)
-                c++;
+            if(f == 1)
+                printf("``");
+            else
+                printf("''");
+            f = -f;
         }
-        printf("%.2f\n",c/n);
+        else
+        putchar(c);
     }
     return 0;
 }
