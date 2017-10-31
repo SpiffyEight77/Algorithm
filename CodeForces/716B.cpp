@@ -5,43 +5,61 @@
 #include<cmath>
 using namespace std;
 string S;
-int a[27],cnt,cnta;
+int a[27],cnt,cnta,p;
+bool f;
 int main()
 {
     while(cin>>S)
     {
         cnt = 0;
         cnta = 0;
-        memset(a,0,sizeof(a));
+        
         if(S.size() < 26)
         {
             printf("-1\n");
             continue;
         }
-        for (int i = 0; i < S.size(); i++)
-            if(S[i] >= 'A' && S[i] <= 'Z')
-                a[S[i] - 'A'] = 1;
-            else
-                if(S[i] == '?')
-                    cnt++;
-        for (int i = 0; i < 27; i++)
-            if(a[i])
-                cnta++;
-    
-            for (int i = 0; i < S.size(); i++)
-                if(S[i] == '?')
-                    for (int j = 0; j < 26; j++)
-                        if(a[j] == 0)
+
+        for (int i = 0; i <= S.size() - 26; i++)
+        {
+            memset(a,0,sizeof(a));
+            f = true;
+            for (int j = i; j < i + 26; j++)
+                if(S[j] == '?')
+                    continue;
+                else
+                    if(S[j] >= 'A' && S[j] <= 'Z')
+                    {
+                        a[S[j] - 'A'] ++;
+                        if(a[S[j] - 'A'] > 1)
                         {
-                            S[i] = j + 'A';
-                            a[j] = 1;
-                            cnta++;
+                            f = false;
                             break;
                         }
-        if(cnta < 26)
-            printf("-1\n");
+                    }
+            p = i;
+            if(f == true)
+                break;
+        }
+        
+        if(f == true)
+        {
+            for (int j = p; j < p + 26; j++)
+                if(S[j] == '?')
+                    for (int k = 0; k < 26; k++)
+                        if(a[k] == 0)
+                        {
+                            S[j] = k + 'A';
+                            a[k] = 1;
+                            break;
+                        }
+            for (int i = 0; i < S.size(); i++)
+                if(S[i] == '?')
+                    S[i] = 'A';
+            cout<<S<<endl;
+        }
         else
-            cout<<S<<endl;               
+            cout<<"-1"<<endl;
     }
     return 0;
 }
