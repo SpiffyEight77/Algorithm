@@ -17,6 +17,7 @@ int main()
         cnt = 0;
         for (int i = 0; i < S.size(); i++)
         {
+
             if(S[i] != '0')
             {
                 for (int j = i+1; j < S.size(); j++)
@@ -29,6 +30,8 @@ int main()
                 }
                 f = true;
             }
+            else
+                cnt++;
             if(f)
                 break;
         }
