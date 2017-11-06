@@ -6,7 +6,7 @@
 const int Maxn = 200100;
 using namespace std;
 int n,a[Maxn];
-bool f;
+bool f,t;
 int main()
 {
     while(cin>>n)
@@ -25,8 +25,11 @@ int main()
                 if(a[i] % 2 == 0)
                     continue;
             else
-                if(a[i] - 1 == 0)
+                if(a[i] % 2 != 0 && i != n-1)
                     a[i+1] -= 1;
+            else
+                if(a[i] == 0)
+                    continue;
             else
             {
                 f = false;
