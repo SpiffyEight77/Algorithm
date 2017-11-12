@@ -11,5 +11,6 @@ int main()
     cin>>N>>M;
     ans = (100 * (N - M) + 1900 * M) * pow(2,M);   
     cout<<ans<<endl;
+    
     return 0;
 }
