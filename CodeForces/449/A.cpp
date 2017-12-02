@@ -4,7 +4,7 @@
 #include<algorithm>
 #include<cmath>
 using namespace std;
-const int Maxn = 1000100;
+const int Maxn = 1000100000;
 int k,p,n,m,l,res,a[10];
 long long ans;
 bool f;
@@ -24,7 +24,7 @@ int main()
             n/=10;
         }
         if(l%2!=0)
-            break;
+            continue;
         for (int j = 0; j < l/2; j++)
             if(a[j] != a[l-j-1])
             {
@@ -33,8 +33,7 @@ int main()
             }
         if(f)
         {
-            //cout<<i<<endl;
-            ans+=i;
+            ans = ans + i % p;
             res++;
         }
         if(res == k)
