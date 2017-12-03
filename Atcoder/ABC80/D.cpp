@@ -3,7 +3,7 @@
 #include<cstring>
 #include<algorithm>
 #include<cmath>
-using namepace std;
+using namespace std;
 const int Maxn = 100010;
 typedef long long ll;
 int main()
