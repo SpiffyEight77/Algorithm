@@ -6,26 +6,33 @@
 using namespace std;
 const int Maxn = 100010;
 typedef long long ll;
-int f[110][20],p[110][20],ans,res,n;
+int f[110][20],p[110][20],ans,cnt,res,n;
 int main()
 {
     cin>>n;
-
-    cout<<(n>>2)<<endl;
-    cout<<((n>>2) & 1)<<endl;
-    // for (int i = 1; i <= n; i++)
-    //     for (int j = 1; j <= 10; j++)
-    //         cin>>f[i][j];
-    // for (int i = 1; i <= n; i++)
-    //     for (int j = 0; j <= 10; j++)
-    //         cin>>p[i][j];
-    // res = -(1<<30);
-    // for (int k = 1; k <= 1024; k++)
-    // {
-    //     for (int i = 1; i <= n; i++)
-    //     {
-    //         for (int j = 0; j < 10)
-    //     }
-    // }
+    for (int i = 0; i < n; i++)
+        for (int j = 0; j < 10; j++)
+            cin>>f[i][j];
+    for (int i = 0; i < n; i++)
+        for (int j = 0; j <= 10; j++)
+            cin>>p[i][j];
+    res = -(1<<30);
+    for (int k = 1; k < 1024; k++)
+    {
+        ans = 0;
+        for (int i = 0; i < n; i++)
+        {
+            cnt = 0;
+            for (int j = 0; j < 10; j++)
+            {
+                if(k>>j&1 && f[i][j])
+                    cnt++;
+            }
+            ans += p[i][cnt];
+        }
+        if(ans > res)
+            res = ans;
+    }
+    cout<<res<<endl;
     return 0;
 }
