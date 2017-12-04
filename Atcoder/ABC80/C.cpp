@@ -25,7 +25,7 @@ int main()
             cnt = 0;
             for (int j = 0; j < 10; j++)
             {
-                if(k>>j&1 && f[i][j])
+                if(k>>j&1 && f[i][j]) // 右移与1运算求改数二进制有多少个1
                     cnt++;
             }
             ans += p[i][cnt];
