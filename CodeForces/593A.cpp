@@ -45,6 +45,7 @@ int main()
                     if(a[i][29] + l > 2)
                     {
                         f = false;
+                        a[i][a[j][k] - 'a'] = 1;
                         break;
                     }
                 }
