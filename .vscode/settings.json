@@ -5,6 +5,7 @@
         "cmath": "cpp",
         "iostream": "cpp",
         "algorithm": "cpp",
-        "ostream": "cpp"
+        "ostream": "cpp",
+        "ratio": "cpp"
     }
 }
