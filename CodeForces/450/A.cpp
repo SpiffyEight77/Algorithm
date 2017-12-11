@@ -10,7 +10,6 @@ const int Mod = 1000000000 + 7;
 int x,y;
 int main()
 {
-    cin>>x>>y;
-    cout<<min(x,y)<<" "<<( max(x,y) - min(x,y) ) / 2<<endl;
+    
     return 0;
 }
