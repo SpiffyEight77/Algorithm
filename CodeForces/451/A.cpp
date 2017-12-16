@@ -6,8 +6,13 @@
 using namespace std;
 const int Maxn = 100000 + 100;
 const int Mod = 1000000000 + 7;
-int n,a[Maxn];
+int n,l;
+string S;
+bool f = false;
 int main()
 {
+    cin>>S;
+    n = 0;
+    l = S.size();
     return 0;
 }
