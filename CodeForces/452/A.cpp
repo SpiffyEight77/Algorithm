@@ -4,7 +4,7 @@
 #include<algorithm>
 #include<cmath>
 using namespace std;
-const int Maxn = 100100;
+const int Maxn = 200100;
 const int Mod = 1000000000 + 7;
 int n,x,ans,a[Maxn],b[Maxn];
 int main()
@@ -19,22 +19,10 @@ int main()
 
     ans = 0;
 
-    if(a[2] >= a[1] && a[2] != 0 && a[1] != 0) 
-    {
-        ans += a[1];     
-        a[1] = 0;
-    }
+    if(a[1] >= a[2])
+        cout<<a[2] + (a[1] - a[2]) / 3<<endl;
     else
-        if(a[2] <= a[1] && a[2] != 0 && a[1] != 0)
-        {
-            ans += a[2];
-            a[1] = a[2] - a[1];
-        }
-
-
-    if(a[1] % 3 == 0 && a[1] != 0)
-        ans+=a[1]/3;
+        cout<<a[1]<<endl;
     
-    cout<<ans<<endl;
     return 0;
 }
