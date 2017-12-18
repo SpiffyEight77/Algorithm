@@ -3,90 +3,43 @@
 #include<cstring>
 #include<algorithm>
 #include<cmath>
+#include<vector>
+#define Mod 1000000000 + 7
+#define Maxn 100000 + 100
+typedef long long ll;
 using namespace std;
-const int Maxn = 100100;
-const int Mod = 1000000000 + 7;
-int n,x,ans,sum,cnt,a[Maxn],b[Maxn];
-bool vis[Maxn],f=false;
-void dfs(int cnt,int ans,int x)
+bool cmp(int x,int y)
 {
-    if(f)
-        return ;
-    if(cnt == n/2  && ans == 0)
-    {
-        for (int i = 0; i < cnt; i++)
-            cout<<b[i]<<" ";
-        f = true;
-        return ;
-    }
-
-        if(!vis[x] && ans - x >= 0)
-        {
-            ans-=x;
-            b[cnt++] = x;
-            vis[x] = true;
-            dfs(cnt,ans,ans);
-            if(f)
-                return ;
-            vis[x] = false;
-            b[cnt--] = 0;
-            ans+=x;
-        }
-
-    if(f)
-        return ;
-
-    return ;
+    return x < y;
 }
+
+int gcd(int x,int y)
+{
+    return 0;
+}
+
+ll quick_mod()
+{
+    return 0;
+}
+ll sum,n,ans;
 int main()
 {
+    vector<int> v;
     cin>>n;
-
-    memset(vis,0,sizeof(vis));
-
-    sum = 0;
-    cnt = 0;
-    ans = 0;
-
-    for (int i = 1; i <= n; i++)
-        sum+=i;
-    
-    cout<<sum%2<<endl;
-
-    cout<<n/2<<" ";
-
-    ans = sum/2;
-
-    cout<<n<<" ";
-
-    
-
-    while(ans)
-    {
-        if(vis[])
-    }
-
-    // for (int i = n; i >= 1; i--)
-    // {
-    //     dfs(cnt,sum/2,i);
-    // }
-
-    // if(n%2!=0)
-    // {
-    //     cout<<n/2+1<<" ";
-    //     ans = 0;
-        
-    // }
-    // else
-    // {
-    //     cout<<n/2<<" ";
-    //     for (int i = 1; i <= n/2; i++)
-    //         cout<<i<<" ";
-    // }
-
-
-    
+    sum = n * (1 + n) / 2;
+    //cout<<sum<<endl;
+    cout<<((sum % 2 != 0 ? "1" : "0"))<<endl;
+    ans = sum / 2;
+    for (ll i = n; i >= 1 && ans > 0; i--)
+        if(i <= ans)
+        {
+            v.push_back(i);
+            ans -= i;
+        }
+    cout<<v.size()<<" ";
+    for (ll i = 0; i < v.size(); i++)
+        cout<<v[i]<<" ";
     cout<<endl;
-
     return 0;
 }
