@@ -6,6 +6,11 @@
         "iostream": "cpp",
         "algorithm": "cpp",
         "ostream": "cpp",
-        "ratio": "cpp"
+        "ratio": "cpp",
+        "deque": "cpp",
+        "map": "cpp",
+        "set": "cpp",
+        "string": "cpp",
+        "vector": "cpp"
     }
 }
