@@ -21,32 +21,32 @@ ll quick_mod()
 {
     return 0;
 }
-int n,m,x,y,p,a[Maxn],b[Maxn],vis[110];
+int n,m,x,y,p,a,b;
 bool f;
 int main()
 {
-    cin>>n>>m;
+    cin>>n>>m>>x>>y;
 
-    for (int i = 0; i < n; i++)
-        cin>>a[i]>>b[i];
-    
-    p = 0;
-
-    for (int i = 0; i < n; i++)
+    if(y == m && x == 0)
     {
+        cout<<"YES"<<endl;
+        return 0;
+    }
 
-        if(b[i] == m)
+    for (int i = 1; i < n; i++)
+    {
+        cin>>a>>b;
+        
+        if(a <= y)
+            y = max(b,y);
+        
+        if(y == m)
         {
             cout<<"YES"<<endl;
             return 0;
         }
-
-        if(a[i+1] > b[i])
-        {
-            cout<<"NO"<<endl;
-            return 0;
-        }
     }
 
+    cout<<"NO"<<endl;
     return 0;
 }
