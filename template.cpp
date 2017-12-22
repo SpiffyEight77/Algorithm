@@ -4,7 +4,7 @@
 #include<algorithm>
 #include<cmath>
 #define Mod 1000000000 + 7
-#define Maxn 100000 + 100
+#define Maxn 1000000 + 100
 typedef long long ll;
 using namespace std;
 bool cmp(int x,int y)
