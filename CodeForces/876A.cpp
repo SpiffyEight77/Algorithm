@@ -22,34 +22,42 @@ ll quick_mod()
     return 0;
 }
 
-int n,a,b,c,t,ans;
+int n,a,b,c,p,ans,k,t;
 
 int main()
 {
     cin>>n;
     cin>>a>>b>>c;
 
-    if(n == 1)
-    {
-        cout<<"0"<<endl;
-        return 0;
-    }
-
     ans = 0;
-    if(a + b == c)
-        t = min(a,b);
-    else
-        t = min(a,b) + c;   
+    
+    t = 1;
 
+    for (int i = 2; i <= n; i++)
+    {
+        if(t == 1)
+        {
+            if(a < b)   k = a, p = 2;
+            else    k = b, p = 3;
+        }
+
+        if(t == 2)
+        {
+            if(a < c)   k = a, p = 1;
+            else    k = c, p = 3;
+        }
+
+        if(t == 3)
+        {
+            if(b < c)   k = b, p = 1;
+            else    k = c, p = 2;
+        }
+
+        ans += k;
+        t = p;
+    }
     
 
     cout<<ans<<endl;
     return 0;
 }
-
-a b c
-a c b
-b a c
-b c a
-c a b
-c b a
