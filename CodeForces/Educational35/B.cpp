@@ -21,8 +21,10 @@ ll quick_mod()
 {
     return 0;
 }
-
+int n,a,b;
 int main()
 {
+    cin>>n>>a>>b;
+    
     return 0;
 }
