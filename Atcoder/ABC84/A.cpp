@@ -22,7 +22,10 @@ ll quick_mod()
     return 0;
 }
 
+int n;
 int main()
 {
+    cin>>n;
+    cout<<48 - n<<endl;
     return 0;
 }

@@ -21,8 +21,29 @@ ll quick_mod()
 {
     return 0;
 }
-
+string S;
+int a,b;
+bool f;
 int main()
 {
+    cin>>a>>b;
+    cin>>S;
+    f = true;
+    for (int i = 0; i < S.size(); i++)
+        if(i == a && S[a] != '-')
+        {
+            f = false;
+            break;
+        }
+        else
+            if( (S[i] < '0' || S[i] > '9') && i != a )
+            {
+                f = false;
+                break;
+            }
+    if(!f)
+        cout<<"No"<<endl;
+    else
+        cout<<"Yes"<<endl;
     return 0;
 }
