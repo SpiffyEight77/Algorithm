@@ -22,72 +22,45 @@ ll quick_mod()
     return 0;
 }
 
-
-
-int n,m,sx,sy,ex,ey,ans,num,dir[4][2] = {1,0, -1,0, 0,-1, 0,1};
-string S;
-char s[55][55],mark[Maxn];
-
-void dfs(int x,int y)
-{
-    if(x == ex && y == ey)
-    {
-        for (int i = 0; i < S.size(); i++)
-            if()
-        ans++;
-        return ;
-    }   
-
-    for (int i = 0; i < 4; i++)
-    {
-        x+=dir[i][0];
-        y+=dir[i][1];
-        
-        if(s[x][y] != '#' && x >= 0 && x < n && y >= 0 && y < m)
-        {
-            if(i == 0)
-                mark[num] = 'U';
-            else
-                if(i == 1)
-                    mark[num] = 'D';
-            else
-                if(i == 2)
-                    mark[num] = 'L';
-            else
-                if(i == 3)
-                    mark[num] = 'R';
-            num++;
-            dfs(x,y);
-            num--;
-            mark[num] = ' ';
-        }
-    }
-
-
-    return ;
-}
+int n,m,x,y,sx,sy,ans,dir[4][2] = {1,0, -1,0, 0,-1, 0,1},a[4] = {0,1,2,3};
+string S[Maxn],s;
+bool f;
 
 int main()
 {
     cin>>n>>m;
+    ans = 0;
     for (int i = 0; i < n; i++)
     {
+        cin>>S[i];
         for (int j = 0; j < m; j++)
-        {
-            cin>>s[i][j];
-            if(s[i][j] == 'S')
-                sx = i, sy = j;
-            if(s[i][j] == 'E')
-                ex = i, ey = j;
-        }
-        getchar();
+            if(S[i][j] == 'S') sx = i, sy = j;
     }
 
-    cin>>S;
+    cin>>s;
 
-    num = 0;
+    do
+    {
+        x = sx; y = sy; f = false;
+        for (int i = 0; i < s.size(); i++)
+        {
+            
+            if(s[i] - '0' == a[0])
+                x--;
+            if(s[i] - '0' == a[1])
+                x++;
+            if(s[i] - '0' == a[2])
+                y--;
+            if(s[i] - '0' == a[3])
+                y++;
+            
+            if(x >= n || y >= m || x < 0 || y < 0 || S[x][y] == '#') break;
+            if(S[x][y] == 'E') { f = true; break;  }
 
-    dfs(ex,ey);
+        }
+        if(f)
+            ans++;        
+    }while(next_permutation(a, a + 4));
 
     cout<<ans<<endl;
 
