@@ -26,5 +26,6 @@ ll quick_mod()
 int main()
 {
     
+    
     return 0;
 }
