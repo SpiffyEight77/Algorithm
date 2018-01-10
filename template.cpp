@@ -17,7 +17,7 @@ int gcd(int x,int y)
 {
     return 0;
 }
-
+ 
 ll quick_mod()
 {
     return 0;
