@@ -1,11 +1,22 @@
+# n,a,b = map(int,input().split())
+# ans = 0;
+# for i in range(1,n+1):
+#     sum = 0;
+#     x = i;
+#     while x:
+#         sum += int(x%10);
+#         x/=10;
+#     if a <= sum <= b:
+#         ans+=i;
+# print("%d" % (ans) );
+
 n,a,b = map(int,input().split())
 ans = 0;
-for i in range(1,n+1):
+for i in range(n+1):
+    str_i = str(i)
     sum = 0;
-    x = i;
-    while x:
-        sum += int(x%10);
-        x/=10;
+    for x in str_i:
+        sum += int(x)
     if a <= sum <= b:
         ans+=i;
-print("%d" % (ans) );
+print(ans)
