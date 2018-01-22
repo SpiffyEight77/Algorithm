@@ -33,7 +33,6 @@ int main()
             break;
         }
     }
-    // cout<<t[1]<<x[0]<<y[0]<<tt<<endl;
     if(f == true)
         cout<<"Yes"<<endl;
     else
