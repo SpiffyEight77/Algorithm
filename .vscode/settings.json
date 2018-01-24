@@ -12,5 +12,7 @@
         "set": "cpp",
         "string": "cpp",
         "vector": "cpp"
-    }
+    },
+    "C_Cpp.intelliSenseEngineFallback": "Enabled",
+    "C_Cpp.errorSquiggles": "Disabled"
 }
