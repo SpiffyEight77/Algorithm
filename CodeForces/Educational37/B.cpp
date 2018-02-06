@@ -5,27 +5,28 @@
 #include<cstring>
 #define Maxn 100001
 using namespace std;
-int t = 1,n,leave,now,k;
-struct s{
-    int c;
-    int l;
-}stu[1100];
+int t = 1,n,l,r,k;
 int main()
 {
     cin>>t;
     while(t--)
     {
-        memset(stu,0,sizeof(stu));
-        leave = 0;
-        now = 1;
         k = 1;
         cin>>n;
         for (int i = 1; i <= n; i++)
         {
-            cin>>stu[i].c>>stu[i].l;
-           
+            cin>>l>>r;
+            if(k <= l)
+            {
+                cout<<l<<" ";
+                k = l + 1;
+            }
+            else
+                if(k <= r)
+                    cout<<k++<<" ";
+            else
+                cout<<"0"<<" ";
         }
-      
        cout<<endl;
     }
     return 0;
