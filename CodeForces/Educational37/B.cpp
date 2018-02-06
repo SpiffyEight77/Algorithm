@@ -23,25 +23,9 @@ int main()
         for (int i = 1; i <= n; i++)
         {
             cin>>stu[i].c>>stu[i].l;
-            leave = max(leave,stu[i].l);
+           
         }
-       while(now <= leave)
-       {
-            if(stu[k].l < now)
-            {
-                cout<<"0 ";
-                k++;
-            }
-            
-                if(stu[k].l > now)
-                {
-                    cout<<now<<" ";
-                    k++;
-                    now++;
-                }
-            if(k > n)
-                break;
-       }
+      
        cout<<endl;
     }
     return 0;
