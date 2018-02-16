@@ -28,7 +28,8 @@ int main()
     if(!f1)
         cout<<"-";
     if(ans == 0)
-        cout<<S;
+        for (int i = 1; i <= x; i++)
+            cout<<S[i];
     else
     if(!f2)
     {   
