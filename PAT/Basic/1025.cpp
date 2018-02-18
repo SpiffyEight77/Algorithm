@@ -14,18 +14,15 @@ struct node
 int l,N,k,t,len,next_add;
 int main()
 {
-    node n;
-    node add[100000];
     vector<node> F;
     vector<node> R;
+    node n;
+    node add[100000];
     cin>>l>>N>>k;
-    for (int i = 1; i <= N; i++)
+    for (int i = 0; i < N; i++)
     {
         cin>>n.address>>n.data>>n.next;
-        add[n.address].address = n.address;
-        add[n.address].data = n.data;
-        add[n.address].next = n.next;
-        //printf("%d %d %d\n",add[n.address].address,add[n.address].data,add[n.address].next);   
+        add[n.address] = n;
     }
     next_add = l;
     while(next_add != -1)
@@ -34,12 +31,11 @@ int main()
         next_add = add[next_add].next;
     }
     len = F.size();
-    k--;
-    t = k;
-    for (int i = k; i < len; i += k)
+    t = k - 1;
+    while(t < len)
     {
-        for (int j = i; j >= i - t; j--)
-            R.push_back(F[j]);
+        for (int i = t; i > t - k; i--)
+            R.push_back(F[i]);
         t += k;
     }
     for (int i = t - k + 1; i < len; i++)
