@@ -6,61 +6,31 @@
 #define Maxn 100010
 using namespace std;
 int n,cnt = 0;
-struct person
-{
-    char name[10];
-    int yy;
-    int mm;
-    int dd;
-}p[Maxn];
-
+char l[11] = "1814/09/06",r[11] = "2014/09/06",youngest[11] = "1814/09/06",oldest[11] = "2014/09/06",s[11],sy[11],so[11],date[11];
 int main()
 {
-    person youngest;
-    person oldest;
-
-    youngest.yy = 1814;
-    youngest.mm = 9;
-    youngest.dd = 6;
-
-    oldest.yy = 2014;
-    oldest.mm = 9;
-    oldest.dd = 6;
-    
     cin>>n;
     for (int i = 0; i < n; i++)
-        scanf("%s %d/%d/%d",p[i].name,&p[i].yy,&p[i].mm,&p[i].dd);
-
-    for (int i = 0; i < n; i++)
     {
-        if( (p[i].yy > 1814 && p[i].yy < 2014) || (p[i].yy == 1814 && p[i].mm == 9 && p[i].dd >= 6) || (p[i].yy == 1814 && p[i].mm > 9) || (p[i].yy == 2014 && p[i].mm == 9 && p[i].dd <= 6) || (p[i].yy == 2014 && p[i].mm < 9) )
+        cin>>s>>date;
+        if(strcmp(date,l) >= 0 && strcmp(date,r) <= 0)
         {
             cnt++;
-
-            if(p[i].yy == youngest.yy && p[i].mm == youngest.mm && p[i].dd >= youngest.dd)
-                youngest = p[i];
-            else
-                if(p[i].yy == youngest.yy && p[i].mm >= youngest.mm)
-                    youngest = p[i];
-            else
-                if(p[i].yy >= youngest.yy)
-                    youngest = p[i];
-
-            if(p[i].yy == oldest.yy && p[i].mm == oldest.mm && p[i].dd <= oldest.dd)
-                oldest = p[i];
-            else
-                if(p[i].yy == oldest.yy && p[i].mm <= oldest.mm)
-                    oldest = p[i];
-            else
-                if(p[i].yy <= oldest.yy)
-                    oldest = p[i];
+            if(strcmp(date,youngest) >= 0)
+            {
+                strcpy(youngest,date);
+                strcpy(sy,s);
+            }
+            if(strcmp(date,oldest) <= 0)
+            {
+                strcpy(oldest,date);
+                strcpy(so,s);
+            }
         }
     }
-    
     if(cnt == 0)
         cout<<"0"<<endl;
     else
-        cout<<cnt<<" "<<oldest.name<<" "<<youngest.name<<endl;
-        
+        cout<<cnt<<" "<<so<<" "<<sy<<endl;
     return 0;
 }
