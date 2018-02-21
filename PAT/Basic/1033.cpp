@@ -5,41 +5,33 @@
 #include<cmath>
 #define Maxn 100010
 using namespace std;
-string s,ss;
-int k = 0,num[11],a[27],A[27];
-char c[6];
-bool f = false;
+string s;
+char badkey[1100];
+int flag,f = 0;
 int main()
 {
-    cin>>s>>ss;
+    gets(badkey);
+    cin>>s;
+    for (int i = 0; i < strlen(badkey); i++)
+        if(badkey[i] == '+')
+        {
+            f = 1;
+            break;
+        }
+
     for (int i = 0; i < s.size(); i++)
     {
-        if(s[i] >= '0' && s[i] <= '9')
-            num[s[i] - '0'] = 1;
-        if(s[i] >= 'A' && s[i] <= 'Z')
-            a[s[i] - 'A'] = 1,A[s[i] - 'A'] = 1;
-        if(s[i] == '+')
-            f = true;
-        if(s[i] == '_' || s[i] == ',' || s[i] == '.' || s[i] == '-')
-            c[k++] = s[i];
-    }
-    
-    for (int i = 0; i < ss.size(); i++)
-    {
-        if(ss[i] >= '0' && ss[i] <= '9' && num[ss[i] - '0'] == 0)
-            cout<<ss[i];
-        if(ss[i] >= 'a' && ss[i] <= 'z' && a[ss[i] - 'a'] == 0 )
-            cout<<ss[i];
-        if(ss[i] >= 'A' && ss[i] <= 'Z' && f == false)
-            cout<<ss[i];
-        if(ss[i] == '_' || ss[i] == ',' || ss[i] == '.' || ss[i] == '-')
-        for (int j = 0; j < k; j++)
-        {
-            if(c[j] == ss[i])
+        flag = 0; 
+        if( (s[i] >= 'A' && s[i] <= 'Z') && (f == 1) )
+            continue;
+        for (int j = 0; j < strlen(badkey); j++)
+            if( s[i] == badkey[j] || (s[i] >= 'a' && s[i] <= 'z' && s[i] + 'A' - 'a' == badkey[j]) )
+            {
+                flag = 1;
                 break;
-            if(j == k - 1)
-                cout<<ss[i];
-        }
+            }
+        if(flag == 0)
+            cout<<s[i];
     }
     cout<<endl;
     return 0;
