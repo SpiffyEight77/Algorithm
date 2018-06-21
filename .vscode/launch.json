@@ -8,7 +8,7 @@
             "type": "node",
             "request": "launch",
             "name": "Launch Program",
-            "program": "${workspaceFolder}/FCC/Basic Algorithm Scripting/Check for Palindromes.js"
+            "program": "${workspaceFolder}/FCC/Basic Algorithm Scripting/test.js"
         }
     ]
 }
