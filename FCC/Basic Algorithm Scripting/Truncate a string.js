@@ -5,11 +5,6 @@ function truncate(str, num) {
     }
     else 
         return num > 3 ? str.slice(0,num - 3) + "..." : str.slice(0,num) + "...";
-
 }
   
 truncate("A-tisket a-tasket A green and yellow basket", 11);
-  
-console.log(truncate("A-tisket a-tasket A green and yellow basket",11));
-
-console.log(truncate("A-",1));
