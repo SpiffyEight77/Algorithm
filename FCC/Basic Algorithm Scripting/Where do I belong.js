@@ -7,5 +7,3 @@ function where(arr, num) {
 }
   
 where([40, 60], 50);
-
-console.log(where([40, 60], 50));
