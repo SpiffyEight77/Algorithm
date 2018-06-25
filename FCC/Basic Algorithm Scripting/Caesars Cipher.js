@@ -17,5 +17,3 @@ function rot13(str) { // LBH QVQ VG!
 }
   
 rot13("SERR PBQR PNZC");  // 你可以修改这一行来测试你的代码
-
-console.log(rot13("SERR PBQR PNZC"));
