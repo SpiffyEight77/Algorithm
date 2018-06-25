@@ -9,5 +9,3 @@ function repeat(str, num) {
 }
   
 repeat("abc", 3);
-  
-console.log(repeat("abc", 3));
