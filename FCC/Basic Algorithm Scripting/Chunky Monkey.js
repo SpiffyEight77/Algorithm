@@ -7,5 +7,3 @@ function chunk(arr, size) {
 }
   
 chunk(["a", "b", "c", "d"], 2);
-
-console.log(chunk(["a", "b", "c", "d"], 2));
