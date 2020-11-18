@@ -1,0 +1,3 @@
+[submodule "LeetCode"]
+	path = LeetCode
+	url = git@github.com:SpiffyEight77/LeetCode.git
